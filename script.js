@@ -70,7 +70,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate elements on scroll
+// Animate elements on scroll - ULTRA DRAMATIC VERSION
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -79,17 +79,24 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Animate IN - BIG ENTRANCE
             entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.transform = 'translateY(0) scale(1) rotateY(0) rotateX(0)';
+        } else {
+            // Reset animation when scrolling away
+            entry.target.style.opacity = '0';
+            entry.target.style.transform = 'translateY(120px) scale(0.75) rotateY(25deg) rotateX(10deg)';
         }
     });
 }, observerOptions);
 
-// Observe project cards and hobby cards
+// Observe project cards and hobby cards with ULTRA DRAMATIC ANIMATIONS
 document.querySelectorAll('.project-card, .hobby-card, .skill-category').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transform = 'translateY(120px) scale(0.75) rotateY(25deg) rotateX(10deg)';
+    el.style.transition = 'opacity 1s ease-out, transform 1s cubic-bezier(0.25, 0.8, 0.25, 1)';
+    el.style.perspective = '1200px';
+    el.style.transformStyle = 'preserve-3d';
     observer.observe(el);
 });
 

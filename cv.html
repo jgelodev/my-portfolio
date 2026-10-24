@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Angelo Sanmillan - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            border-bottom: 3px solid #00d4ff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            font-size: 0.95em;
+            color: #555;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1a1a2e;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .entry {
+            margin-bottom: 18px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 1.05em;
+        }
+
+        .entry-subtitle {
+            color: #00d4ff;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .entry-date {
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        .entry-location {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .entry-description {
+            color: #555;
+            margin-left: 10px;
+            font-size: 0.95em;
+        }
+
+        .entry-description li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .skill-category-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #00d4ff;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .achievements {
+            background: #f0f7ff;
+            padding: 15px;
+            border-left: 4px solid #00ff88;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .achievements strong {
+            color: #00d4ff;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="name">JOHN ANGELO SANMILLAN</div>
+            <div class="title">Full Stack Developer | Cybersecurity Enthusiast | Tech Innovator</div>
+            <div class="contact-info">
+                <span>📧 jangelsanmillan@gmail.com</span>
+                <span>📱 +63 (0) 917-123-4567</span>
+                <span>📍 Olongapo, Zambales</span>
+                <span>🔗 github.com/jgelodev</span>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <div class="section-title">EDUCATION</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Bachelor of Science in Information Technology (BSIT)</div>
+                    <div class="entry-date">2023 - Present</div>
+                </div>
+                <div class="entry-location">Gordon College, Olongapo City</div>
+                <div class="achievements">
+                    <strong>GWA: 1.0</strong> | Consistent Dean's Lister | Academic Honors Student
+                </div>
+                <div class="entry-description">
+                    Currently in 2nd Year, maintaining perfect academic standing with emphasis on Software Development, Web Technologies, and Cybersecurity
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="section">
+            <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Junior Developer</div>
+                    <div class="entry-date">Jun 2024 - Present</div>
+                </div>
+                <div class="entry-location">Microsoft Philippines, Manila</div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Developed and maintained full-stack web applications using React and Node.js</li>
+                        <li>Collaborated with cross-functional teams on cloud infrastructure projects</li>
+                        <li>Implemented security best practices and code reviews</li>
+                        <li>Contributed to 5+ production applications serving 10K+ users</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Web Development Intern</div>
+                    <div class="entry-date">Jan 2024 - May 2024</div>
+                </div>
+                <div class="entry-location">TechHub Solutions, Manila</div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Built responsive web interfaces with HTML5, CSS3, and JavaScript</li>
+                        <li>Optimized website performance achieving 45% speed improvement</li>
+                        <li>Debugged and fixed complex frontend issues</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <div class="section-title">TECHNICAL SKILLS</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Programming Languages</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Web Development</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Cybersecurity</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">Penetration Testing</span>
+                        <span class="skill-tag">Encryption</span>
+                        <span class="skill-tag">Firewall Config</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Tools & Platforms</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+            <div class="section-title">PROJECTS & APPLICATIONS</div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">TaskFlow - Project Management Platform</div>
+                    <div class="entry-date">2024</div>
+                </div>
+                <div class="entry-description">
+                    Full-stack MERN application with real-time collaboration, task tracking, and team management. Features JWT authentication and MongoDB integration.
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">SecureVault - Password Manager</div>
+                    <div class="entry-date">2024</div>
+                </div>
+                <div class="entry-description">
+                    End-to-end encrypted password manager with AES-256 encryption, biometric authentication, and cloud sync capabilities.
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">WebAnalytics Dashboard</div>
+                    <div class="entry-date">2023</div>
+                </div>
+                <div class="entry-description">
+                    Real-time analytics dashboard processing 1M+ events daily with React charts and Python backend processing.
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">PortfolioHub - Developer Network</div>
+                    <div class="entry-date">2023</div>
+                </div>
+                <div class="entry-description">
+                    Social platform connecting 5K+ developers with project collaboration features and skill marketplace.
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section">
+            <div class="section-title">CERTIFICATIONS & ACHIEVEMENTS</div>
+            <div class="entry">
+                <div class="entry-description">
+                    <ul>
+                        <li><strong>Microsoft Certified:</strong> Azure Developer Associate (AZ-204)</li>
+                        <li><strong>CompTIA:</strong> Security+ Certified</li>
+                        <li><strong>Google:</strong> Cloud Associate Cloud Engineer</li>
+                        <li><strong>Cisco:</strong> CCNA - Routing & Switching</li>
+                        <li><strong>Meta:</strong> Front-End Development Specialization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sports & Extracurricular -->
+        <div class="section">
+            <div class="section-title">SPORTS & EXTRACURRICULAR ACTIVITIES</div>
+            <div class="entry">
+                <div class="entry-description">
+                    <strong>Competitive Sports:</strong> Badminton (College Team), Tennis (Club Player), Table Tennis (Inter-college Champion 2024), Swimming (District Level), Chess (Rating: 1850)
+                    <br><br>
+                    <strong>Involvement:</strong> Tech Club President, Hackathon Organizer, Mentoring Program Volunteer
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="section">
+            <div class="section-title">LANGUAGES</div>
+            <div class="entry">
+                <div class="entry-description">
+                    <strong>Filipino</strong> (Native) | <strong>English</strong> (Fluent) | <strong>Technical Documentation</strong> (Advanced)
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

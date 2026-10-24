@@ -777,13 +777,31 @@ section h2::after {
     width: 45px;
     height: 2px;
     margin-top: 12px;
-    background: linear-gradient(
-        90deg,
-        #00d4ff,
-        rgba(0, 212, 255, 0.1)
-    );
+    margin-left: 10px;  /* ← Change this number to move it left/right */
+    background: linear-gradient(90deg, #00d4ff, rgba(0, 212, 255, 0.1));
     border-radius: 2px;
     box-shadow: 0 0 10px rgba(0, 212, 255, 0.25);
+}
+
+/* Customize individual section underlines */
+.hobbies h2::after {
+    margin-left: 480px;
+}
+
+.about h2::after {
+    margin-left:1px;
+}
+
+.skills h2::after {
+    margin-left: 510px;
+}
+
+.projects h2::after {
+    margin-left: 400px;
+}
+
+.contact h2::after {
+    margin-left: 370px;
 }
 
 /* Responsive Design */
