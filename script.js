@@ -153,3 +153,54 @@ document.querySelectorAll('form').forEach(form => {
 
 // Log for debugging
 console.log('Portfolio website loaded successfully!');
+
+
+/* =================================
+   REPEATING SCROLL REVEAL ANIMATIONS
+================================= */
+
+
+/* REPEATING SCROLL REVEAL ANIMATIONS */
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedElements = document.querySelectorAll(`
+        .hero-content,
+        .hero-illustration,
+        .hobbies h2,
+        .hobbies .section-subtitle,
+        .hobby-card,
+        .about-content,
+        .about-image,
+        .skills h2,
+        .skills .section-subtitle,
+        .skill-category,
+        .projects h2,
+        .projects .section-subtitle,
+        .project-card,
+        .contact h2,
+        .contact .section-subtitle,
+        .contact-form,
+        .contact-info
+    `);
+
+    animatedElements.forEach((element) => {
+        element.classList.add("reveal-on-scroll");
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+            } else {
+                entry.target.classList.remove("is-visible");
+            }
+        });
+    }, {
+        threshold: 0,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    animatedElements.forEach((element) => {
+        observer.observe(element);
+    });
+});
+
