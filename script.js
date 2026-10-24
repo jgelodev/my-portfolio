@@ -70,34 +70,50 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate elements on scroll - ULTRA DRAMATIC VERSION
+// PREMIUM Scroll Animations - Professional PowerPoint Style
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            // Animate IN - BIG ENTRANCE
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0) scale(1) rotateY(0) rotateX(0)';
+            // Smooth fade-in with stagger
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) translateX(0) scale(1)';
+            }, index * 80); // Stagger delay
         } else {
-            // Reset animation when scrolling away
             entry.target.style.opacity = '0';
-            entry.target.style.transform = 'translateY(120px) scale(0.75) rotateY(25deg) rotateX(10deg)';
+            entry.target.style.transform = 'translateY(40px) translateX(-20px) scale(0.95)';
         }
     });
 }, observerOptions);
 
-// Observe project cards and hobby cards with ULTRA DRAMATIC ANIMATIONS
-document.querySelectorAll('.project-card, .hobby-card, .skill-category').forEach(el => {
+// Apply to all cards with smooth, premium animation
+document.querySelectorAll('.project-card, .hobby-card, .skill-category').forEach((el, index) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(120px) scale(0.75) rotateY(25deg) rotateX(10deg)';
-    el.style.transition = 'opacity 1s ease-out, transform 1s cubic-bezier(0.25, 0.8, 0.25, 1)';
-    el.style.perspective = '1200px';
+    el.style.transform = 'translateY(40px) translateX(-20px) scale(0.95)';
+    el.style.transition = 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    el.style.perspective = '1000px';
     el.style.transformStyle = 'preserve-3d';
+    el.dataset.index = index;
     observer.observe(el);
+});
+
+// Smooth parallax on sections
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const scrollPosition = window.scrollY;
+        const elementPosition = section.offsetTop;
+        const distance = scrollPosition - elementPosition;
+
+        if (Math.abs(distance) < window.innerHeight * 1.5) {
+            section.style.backgroundPosition = `0 ${distance * 0.5}px`;
+        }
+    });
 });
 
 // Active nav link highlighting
@@ -160,54 +176,3 @@ document.querySelectorAll('form').forEach(form => {
 
 // Log for debugging
 console.log('Portfolio website loaded successfully!');
-
-
-/* =================================
-   REPEATING SCROLL REVEAL ANIMATIONS
-================================= */
-
-
-/* REPEATING SCROLL REVEAL ANIMATIONS */
-document.addEventListener("DOMContentLoaded", () => {
-    const animatedElements = document.querySelectorAll(`
-        .hero-content,
-        .hero-illustration,
-        .hobbies h2,
-        .hobbies .section-subtitle,
-        .hobby-card,
-        .about-content,
-        .about-image,
-        .skills h2,
-        .skills .section-subtitle,
-        .skill-category,
-        .projects h2,
-        .projects .section-subtitle,
-        .project-card,
-        .contact h2,
-        .contact .section-subtitle,
-        .contact-form,
-        .contact-info
-    `);
-
-    animatedElements.forEach((element) => {
-        element.classList.add("reveal-on-scroll");
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-            } else {
-                entry.target.classList.remove("is-visible");
-            }
-        });
-    }, {
-        threshold: 0,
-        rootMargin: "0px 0px -50px 0px"
-    });
-
-    animatedElements.forEach((element) => {
-        observer.observe(element);
-    });
-});
-
