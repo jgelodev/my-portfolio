@@ -103,6 +103,133 @@ body::before {
     z-index: -1;
 }
 
+/* INSANE GLITCH & COMIC BOOK VFX - Color Shifting Moving Circles */
+
+/* Neon glow circles - Left side (moves DOWN) */
+body::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(0, 212, 255, 0.35) 3px, transparent 3px);
+    background-size: 15px 15px;
+    background-position: 0 0;
+    pointer-events: none;
+    z-index: 10;
+    animation: circlesDownColor 8s ease-in-out infinite;
+}
+
+/* Neon glow circles - Right side (moves UP) */
+html::after {
+    content: '';
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(0, 255, 136, 0.3) 3px, transparent 3px);
+    background-size: 17px 17px;
+    background-position: 0 0;
+    pointer-events: none;
+    z-index: 10;
+    animation: circlesUpColor 8s ease-in-out infinite;
+}
+
+/* Subtle scanning lines - neon vibe */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 212, 255, 0.02),
+            rgba(0, 212, 255, 0.02) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+    pointer-events: none;
+    z-index: -1;
+    animation: subtleGlitch 6s ease-in-out infinite;
+}
+
+/* LEFT circles - moves DOWN + color shift */
+@keyframes circlesDownColor {
+    0% {
+        transform: translateY(0);
+        opacity: 0.25;
+        filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+    }
+    25% {
+        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+    }
+    50% {
+        transform: translateY(30px);
+        opacity: 0.45;
+        filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.5));
+    }
+    75% {
+        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.25;
+        filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+    }
+}
+
+/* RIGHT circles - moves UP + color shift */
+@keyframes circlesUpColor {
+    0% {
+        transform: translateY(0);
+        opacity: 0.2;
+        filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.4));
+    }
+    25% {
+        filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.6));
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 0.4;
+        filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.5));
+    }
+    75% {
+        filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.6));
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.2;
+        filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.4));
+    }
+}
+
+/* Subtle glitch scan lines */
+@keyframes subtleGlitch {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.02;
+    }
+    25% {
+        transform: translateY(2px);
+        opacity: 0.04;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 0.02;
+    }
+    75% {
+        transform: translateY(-2px);
+        opacity: 0.03;
+    }
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -928,3 +1055,4 @@ section h2::after {
         display: none !important;
     }
 }
+
