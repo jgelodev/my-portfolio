@@ -70,6 +70,23 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+    
+    if (progressFill) {
+        progressFill.style.width = scrollPercent + '%';
+    }
+    if (progressText) {
+    progressText.textContent = 'Downloading ' + Math.round(scrollPercent) + '%';
+}
+});
+
 // PREMIUM Scroll Animations - Professional PowerPoint Style
 const observerOptions = {
     threshold: 0.15,
