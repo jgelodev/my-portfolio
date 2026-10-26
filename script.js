@@ -14,6 +14,16 @@ navLinks.forEach(link => {
     });
 });
 
+// Smooth button click animation
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        this.classList.add('clicked');
+        setTimeout(() => {
+            this.classList.remove('clicked');
+        }, 600);
+    });
+});
+
 // Form Submission
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', (e) => {
@@ -50,10 +60,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            const targetPosition = targetElement.offsetTop - 80;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 1200; // 1.2 seconds
+            let start = null;
+
+            function animation(currentTime) {
+                if (start === null) start = currentTime;
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function for smooth acceleration/deceleration
+                const easeProgress = progress < 0.5 
+                    ? 2 * progress * progress 
+                    : -1 + (4 - 2 * progress) * progress;
+                
+                window.scrollTo(0, startPosition + distance * easeProgress);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
         }
     });
 });
@@ -190,6 +220,56 @@ document.querySelectorAll('form').forEach(form => {
         }, 3000);
     });
 });
+
+// Binary Code Background - FILLS ENTIRE BACKGROUND - MORE VISIBLE
+function generateBinaryCode() {
+    return Math.random() > 0.5 ? '1' : '0';
+}
+
+function createBinaryLine() {
+    const binaryCode = Array.from({ length: Math.floor(Math.random() * 80 + 120) })
+        .map(() => generateBinaryCode())
+        .join('');
+    
+    const line = document.createElement('div');
+    line.className = 'binary-line';
+    line.textContent = binaryCode;
+    
+    const topPercent = Math.random() * 100;
+    const leftPercent = Math.random() * 100;
+    line.style.top = topPercent + '%';
+    line.style.left = leftPercent + '%';
+    
+    return line;
+}
+
+let binaryContainer = document.querySelector('.binary-code');
+if (!binaryContainer) {
+    binaryContainer = document.createElement('div');
+    binaryContainer.className = 'binary-code';
+    document.body.insertBefore(binaryContainer, document.body.firstChild);
+}
+
+// Create 35 binary lines to FILL background (was 20)
+for (let i = 0; i < 35; i++) {
+    binaryContainer.appendChild(createBinaryLine());
+}
+
+// Change every 800ms (was 1000ms - faster changes)
+setInterval(() => {
+    const binaryLines = document.querySelectorAll('.binary-line');
+    binaryLines.forEach((line) => {
+        const binaryCode = Array.from({ length: Math.floor(Math.random() * 80 + 120) })
+            .map(() => generateBinaryCode())
+            .join('');
+        line.textContent = binaryCode;
+        
+        if (Math.random() > 0.6) {
+            line.style.top = (Math.random() * 100) + '%';
+            line.style.left = (Math.random() * 100) + '%';
+        }
+    });
+}, 800);
 
 // Log for debugging
 console.log('Portfolio website loaded successfully!');
